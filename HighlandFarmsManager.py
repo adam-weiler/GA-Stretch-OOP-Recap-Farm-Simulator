@@ -57,9 +57,7 @@ class HighlandFarmsManager:
         print('How large is the field in hectares?')
         new_hectare = removemetoo
         # hectare = input()
-        Field.create(new_crop, new_hectare)
-
-        # return 'Added a {crop} field of {hectare} hectares!'
+        print(Field.create(new_crop, new_hectare))
 
 
     def harvest_crops(self):
@@ -118,6 +116,7 @@ our_hfm_app.harvest_crops()
 print()
 our_hfm_app.check_status()
 print()
+
 
 
 #Stretch
