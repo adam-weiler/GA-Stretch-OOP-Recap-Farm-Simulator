@@ -14,12 +14,11 @@ class HighlandFarmsManager:
             break
 
 
-
     def print_main_menu(self):
         print('[1] Add Field --> Adds a new field.')
-        # print('[2] Harvest crops --> Harvests crops, & adds to total harvested.')
-        # print('[3] Check Status')
-        # print('[4] Relax --> Provides lovely description of the fields.')
+        print('[2] Harvest crops --> Harvests crops, & adds to total harvested.')
+        print('[3] Check Status')
+        print('[4] Relax --> Provides lovely description of the fields.')
         print('[5] Exit\n')
 
 
@@ -41,56 +40,46 @@ class HighlandFarmsManager:
     def call_option(self, user_selected):
         if user_selected == 1:
             self.add_field()
-        pass
+        elif user_selected == 2:
+            self.add_field()
+        elif user_selected == 3:
+            self.add_field()
+        elif user_selected == 4:
+            self.relax_time()
+        elif user_selected == 5:
+            self.exit()
 
 
-
-    def add_field(self, removeme):
+    def add_field(self, removeme, removemetoo):
         print('What kind of field is it: corn or wheat?')
         new_crop = removeme
         # crop = input()
         print('How large is the field in hectares?')
-        new_hectare = 50
+        new_hectare = removemetoo
         # hectare = input()
         Field.create(new_crop, new_hectare)
 
         # return 'Added a {crop} field of {hectare} hectares!'
 
+
     def harvest_crops(self):
-        #for crop in crops
-            #optional: print ('Harvesting {} food from a {} hectare corn field.')
-            #optional: print ('Harvesting {} food from a {} hectare corn field.')
-            #..etc
-        # return f'The farm has {} harvested food so far.'
-        pass
-        
+        print('\nHarvesting all the crops:')
+        print(Field.harvest_crops())
+     
 
     def check_status(self):
         print('\nDisplay Info about the farm:')
-        Field.check_status()
+        print(Field.check_status())
 
 
-
-
-    def relax(self):
+    def relax_time(self):
         print('\nEnjoy the beauty of each one of your fields:')
         print(Field.relax())
 
 
     def exit(self):
         print('Exiting...')
-        # exit()
-
-
-
-
-
-
-
-
-
-
-
+        sys.exit()
 
 
 
@@ -107,16 +96,28 @@ our_hfm_app = HighlandFarmsManager()
 # our_hfm_app.print_main_menu()
 
 
-our_hfm_app.add_field('corn')
-our_hfm_app.add_field('wheat')
-
 our_hfm_app.check_status()
-
-our_hfm_app.relax()
-
-
-
-
+print()
+our_hfm_app.harvest_crops()
+print()
+our_hfm_app.add_field('corn', 50)
+print()
+our_hfm_app.check_status()
+print()
+our_hfm_app.harvest_crops()
+print()
+our_hfm_app.add_field('wheat', 100)
+print()
+our_hfm_app.harvest_crops()
+print()
+our_hfm_app.relax_time()
+print()
+our_hfm_app.add_field('corn', 200)
+print()
+our_hfm_app.harvest_crops()
+print()
+our_hfm_app.check_status()
+print()
 
 
 #Stretch

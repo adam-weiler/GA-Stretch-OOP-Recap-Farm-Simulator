@@ -1,5 +1,6 @@
 class Field:
     fields = []
+    food_harvested = 0
 
     def __init__(self, crop, hectare):
         '''This method iniatlizes a new Field, with crop and hectare as attributes.'''
@@ -13,22 +14,39 @@ class Field:
     def create(cls, new_crop, new_hectare):
         new_field = Field(new_crop, new_hectare)
         cls.fields.append(new_field)
-        return(new_field)
+        print(f'Added a {new_field.crop} field of {new_field.hectare} hectares!')
+        return new_field
 
-    def harvest_crops(self):
-        pass #Collect food from all fields. 
+    @classmethod
+    def harvest_crops(cls):
+        # pass #Collect food from all fields. 
         #Record total
         #Display
+
+        if len(cls.fields) > 0:
+            for field in cls.fields:
+                if field.crop == 'corn':
+                    food = field.hectare * 20
+                elif field.crop == 'wheat':
+                    food = field.hectare * 30
+
+                cls.food_harvested += food
+                print (f'Harvesting {food} food from a {field.hectare} hectare {field.crop} field.')
+            return f'The farm has {cls.food_harvested} harvested food so far.'
+        else:
+            return 'You haven\'t planted anything yet!'
+
 
     @classmethod
     def check_status(cls): #Status of fields (size, type)
         if len(cls.fields) > 0:
             for field in cls.fields:
                 print (f'{field}')
-            return f'The farm has 27? harvested food so far.'
-        else:
-            print('You haven\'t harvested anything yet!')
-        pass #How much food produced till now.
+        # else:
+        #     print('You haven\'t harvested anything yet!')
+        # pass #How much food produced till now.
+        return f'The farm has {cls.food_harvested} harvested food so far.'
+
 
     @classmethod
     def relax(cls): #Provides lovely description of fields?
