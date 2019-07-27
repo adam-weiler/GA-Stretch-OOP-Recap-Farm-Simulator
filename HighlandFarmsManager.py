@@ -45,9 +45,9 @@ class HighlandFarmsManager:
 
 
 
-    def add_field(self):
+    def add_field(self, removeme):
         print('What kind of field is it: corn or wheat?')
-        new_crop = 'corn'
+        new_crop = removeme
         # crop = input()
         print('How large is the field in hectares?')
         new_hectare = 50
@@ -74,15 +74,19 @@ class HighlandFarmsManager:
 
     def relax(self):
         print('\nEnjoy the beauty of each one of your fields:')
-        Field.relax()
-        #optional: print ('{} hectares of tall green stalks rustling in the breeze fill your horizon.')
-        #optional: print ('The sun hangs low, casting an orange glow on a sea of {} hectares of wheat.')
-        pass
+        print(Field.relax())
 
 
     def exit(self):
         print('Exiting...')
         # exit()
+
+
+
+
+
+
+
 
 
 
@@ -99,12 +103,17 @@ class HighlandFarmsManager:
 
 our_hfm_app = HighlandFarmsManager()
 
-our_hfm_app.main_menu()
-our_hfm_app.print_main_menu()
+# our_hfm_app.main_menu()
+# our_hfm_app.print_main_menu()
+
+
+our_hfm_app.add_field('corn')
+our_hfm_app.add_field('wheat')
 
 our_hfm_app.check_status()
 
 our_hfm_app.relax()
+
 
 
 

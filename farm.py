@@ -32,4 +32,12 @@ class Field:
 
     @classmethod
     def relax(cls): #Provides lovely description of fields?
-        pass
+        if len(cls.fields) > 0:
+            for field in cls.fields:
+                if field.crop == 'corn':
+                    print (f'{field.hectare} hectares of tall green stalks rustling in the breeze fill your horizon.')
+                elif field.crop == 'wheat':
+                    print (f'The sun hangs low, casting an orange glow on a sea of {field.hectare} hectares of wheat.')
+            return 'Wasn\'t that nice?'
+        else:
+            return 'You haven\'t planted anything yet!'
